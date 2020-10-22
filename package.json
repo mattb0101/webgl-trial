@@ -1,0 +1,22 @@
+{
+  "name": "webgl-trial",
+  "version": "1.0.0",
+  "description": "This is a test repo for playing and lerning WebGL -  A JavaScript framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattb0101/webgl-trial.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattb0101/webgl-trial/issues"
+  },
+  "homepage": "https://github.com/mattb0101/webgl-trial#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
