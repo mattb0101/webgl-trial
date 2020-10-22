@@ -5,6 +5,8 @@ if (!gl) {
     throw new Error('WebGL not supported');
 }
 
+
+
 // vertexData = [...]
 
 // create buffer
@@ -47,9 +49,11 @@ attribute vec3 position;
 attribute vec3 color;
 varying vec3 vColor;
 
+uniform mat4 matrix;
+
 void main() {
     vColor = color;
-    gl_Position = vec4(position, 1);
+    gl_Position = matrix * vec4(position, 1);
 }
 `);
 gl.compileShader(vertexShader);
@@ -81,4 +85,16 @@ gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
 gl.vertexAttribPointer(colorLocation, 3, gl.FLOAT, false, 0, 0);
 
 gl.useProgram(program);
+
+const uniformLocations = {
+    matrix: gl.getUniformLocation(program, `matric`),
+};
+
+const mat4 = glMatrix.mat4;
+const matrix = mat4.create();
+mat4.translate(matrix, matrix, [.2, .5, 0]);
+console.log(matrix);
+
+gl.uniformMatrix4fv(uniformLocations.matrix, false, matrix);
+
 gl.drawArrays(gl.TRIANGLES, 0, 3);
